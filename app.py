@@ -1,4 +1,5 @@
 
+import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 import streamlit as st
@@ -6,7 +7,7 @@ from pandas.api.types import is_integer_dtype,is_float_dtype,is_object_dtype
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
-from matplotlib import rc
+
 
 
 
@@ -26,11 +27,12 @@ def fontRegistered():
 
 
 
+
 def main():
 
     fontRegistered()
-    rc('font', family='AppleGothic')
-    
+    fontNames = [f.name for f in fm.fontManager.ttflist]
+    fontname = st.selectbox('NanumGothic', np.unique(fontNames))
     
     st.title('K-Means Clustering APP')
 
