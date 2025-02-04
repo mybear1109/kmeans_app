@@ -10,12 +10,14 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 
 
+
+
 import os
 import matplotlib.font_manager as fm
 
 @st.cache_data
 def fontRegistered():
-    font_dirs = [os.getcwd() + '/custom_fonts']
+    font_dirs = [os.getcwd() + '/customFonts']
     font_files = fm.findSystemFonts(fontpaths=font_dirs)
     for font_file in font_files:
         fm.fontManager.addfont(font_file)
@@ -25,11 +27,14 @@ def fontRegistered():
 
 
 
-def main():
- 
-    fontRegistered()
-    plt.rc('font', family='NanumGothic')
 
+def main():
+
+    fontRegistered()
+    fontNames = [f.name for f in fm.fontManager.ttflist]
+    fontname = st.selectbox('NanumGothic', np.unique(fontNames))
+    plt.rc('font', family=fontname)
+    
     st.title('K-Means Clustering APP')
 
     # 1. csv file upload
