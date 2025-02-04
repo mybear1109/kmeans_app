@@ -6,10 +6,9 @@ from pandas.api.types import is_integer_dtype,is_float_dtype,is_object_dtype
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
-from matplotlib import rc
 
-rc('font', family='AppleGothic')
-plt.rcParams['axes.unicode_minus'] = False
+
+
 
 
 def main():
@@ -88,7 +87,8 @@ def main():
         plt.title('The Elbow Method')
         plt.xlabel('클러스터 갯수')
         plt.ylabel('WCSS')
-        st.pyplot( fig1 ) 
+        st.pyplot( fig1 )
+
         
     
         st.text('원하는 클러스터링(그룹) 갯수를 입력하세요')
