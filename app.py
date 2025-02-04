@@ -26,8 +26,6 @@ def fontRegistered():
 
 
 
-
-
 def main():
 
     fontRegistered()
