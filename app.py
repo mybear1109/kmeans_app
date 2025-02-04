@@ -17,24 +17,29 @@ import matplotlib.font_manager as fm
 
 @st.cache_data
 def fontRegistered():
+    # 폰트 디렉토리 설정
     font_dirs = [os.getcwd() + '/customFonts']
     font_files = fm.findSystemFonts(fontpaths=font_dirs)
+    
+    # 폰트 등록
     for font_file in font_files:
         fm.fontManager.addfont(font_file)
+    
+    # FontManager 새로고침
     fm._load_fontmanager(try_read_cache=False)
 
-
-
-
-
-
 def main():
-
+    # 폰트 등록 및 선택
     fontRegistered()
     fontNames = [f.name for f in fm.fontManager.ttflist]
-    fontname = st.selectbox('NanumGothic', np.unique(fontNames))
-    plt.rc('font', family=fontname)
     
+    # 한글 폰트 선택 (디폴트: NanumGothic)
+    fontname = st.selectbox('사용할 한글 폰트를 선택하세요', np.unique(fontNames), index=fontNames.index('NanumGothic') if 'NanumGothic' in fontNames else 0)
+    plt.rc('font', family=fontname)
+    st.write(f"현재 설정된 폰트: {fontname}")
+
+    st.title('K-Means Clustering APP')
+
     st.title('K-Means Clustering APP')
 
     # 1. csv file upload
