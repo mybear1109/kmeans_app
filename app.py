@@ -82,7 +82,7 @@ def main():
         fig1 = plt.figure()
         plt.plot( range(1, max_k+1) ,  wcss )
         plt.title('The Elbow Method')
-        plt.xlabel('# of clusters')
+        plt.xlabel('클러스터 갯수')
         plt.ylabel('WCSS')
         st.pyplot( fig1 ) 
         
