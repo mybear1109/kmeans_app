@@ -6,7 +6,7 @@ from pandas.api.types import is_integer_dtype,is_float_dtype,is_object_dtype
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
+from matplotlib import rc
 
 
 
@@ -28,7 +28,8 @@ def fontRegistered():
 def main():
 
     fontRegistered()
-    plt.rcParams['font.family'] = "AppleGothic"
+    rc('font', family='AppleGothic')
+    plt.rcParams['axes.unicode_minus'] = False
     
     st.title('K-Means Clustering APP')
 
