@@ -16,34 +16,22 @@ import os
 import matplotlib.font_manager as fm
 
 @st.cache_data
-def load_fonts():
-    """Mac 시스템에서 사용 가능한 폰트 불러오기"""
-    font_dirs = ["/System/Library/Fonts/Supplemental/", "/Library/Fonts/"]
+def fontRegistered():
+    font_dirs = [os.getcwd() + '/custom_fonts']
     font_files = fm.findSystemFonts(fontpaths=font_dirs)
     for font_file in font_files:
         fm.fontManager.addfont(font_file)
     fm._load_fontmanager(try_read_cache=False)
 
-def set_font():
-    """Mac에서 사용할 기본 한글 폰트를 설정"""
-    load_fonts()
-    available_fonts = [f.name for f in fm.fontManager.ttflist]
-    
-    # Mac 기본 한글 폰트 설정
-    default_font = "AppleGothic" if "AppleGothic" in available_fonts else available_fonts[0]
-    
-    # 사용자 선택 폰트
-    fontname = st.selectbox("사용할 한글 폰트를 선택하세요", np.unique(available_fonts), index=available_fonts.index(default_font))
-    
-    # Matplotlib에 적용
-    plt.rcParams["font.family"] = fontname
-    st.write(f"📌 현재 적용된 폰트: {fontname}")
+
+
+
 
 
 def main():
 
-      # 한글 폰트 설정
-    set_font()
+    fontRegistered()
+    plt.rc('font', family='NanumGothic')
     
     st.title('K-Means Clustering APP')
 
