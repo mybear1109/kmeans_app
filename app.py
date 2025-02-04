@@ -6,6 +6,10 @@ from pandas.api.types import is_integer_dtype,is_float_dtype,is_object_dtype
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
+from matplotlib import rc
+
+rc('font', family='AppleGothic')
+plt.rcParams['axes.unicode_minus'] = False
 
 
 def main():
