@@ -7,6 +7,7 @@ from pandas.api.types import is_integer_dtype,is_float_dtype,is_object_dtype
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 
 
 
