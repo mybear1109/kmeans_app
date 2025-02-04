@@ -25,11 +25,12 @@ def fontRegistered():
 
 
 
+
 def main():
 
     fontRegistered()
     rc('font', family='AppleGothic')
-    plt.rcParams['axes.unicode_minus'] = False
+    
     
     st.title('K-Means Clustering APP')
 
