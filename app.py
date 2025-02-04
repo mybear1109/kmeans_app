@@ -33,6 +33,7 @@ def main():
     fontRegistered()
     fontNames = [f.name for f in fm.fontManager.ttflist]
     fontname = st.selectbox('NanumGothic', np.unique(fontNames))
+    plt.rc('font', family=fontname)
     
     st.title('K-Means Clustering APP')
 
